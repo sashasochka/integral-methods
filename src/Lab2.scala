@@ -15,7 +15,12 @@ object Lab2 extends App {
 
   def printVec(A: Vector) =
     for (v <- A)
-      print(f"$v%.7f ")
+      print(f"\t$v%12.7f")
+
+
+  def printVecExp(A: Vector) =
+    for (v <- A)
+      print(f"\t$v%9.1E")
 
 
   def *(A: Matrix, B: Matrix): Matrix = {
@@ -57,11 +62,11 @@ object Lab2 extends App {
       newX(i) += b(i) / A(i)(i)
     }
 
-    print(s"Step $step: ")
+    print(f"Step $step%3d: ")
     printVec(x)
-    println()
+    print(";  ")
     print(s"Вектор нев’язки: ")
-    printVec(minus(mul(A, newX), b))
+    printVecExp(minus(mul(A, newX), b))
     println()
 
     val end = newX.zip(x).map({
