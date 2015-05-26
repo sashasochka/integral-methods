@@ -13,8 +13,8 @@ eps = 0.1**6
 def signs(t):
 	q = [ff(t) for ff in f]
 	for i in reversed(range(len(q))):
-		if q[i] == 0 or i > 0 and q[i-1] != 0 and (q[i] / abs(q[i]) == q[i-1] / abs(q[i - 1])):
-			q.pop(i)
+	if q[i] == 0 or i > 0 and q[i-1] != 0 and (q[i] / abs(q[i]) == q[i-1] / abs(q[i - 1])):
+	  q.pop(i)
 	return (len(q))//2
 
 def bisect(a, b):
